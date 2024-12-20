@@ -288,6 +288,7 @@ body, html {
   #display-image {
     height: 100vh;
     object-fit: cover;
+    object-position: 50% 50%;
     display: none;
      /* Smooth transition for blur and scale */
 }
