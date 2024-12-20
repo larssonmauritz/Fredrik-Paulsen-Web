@@ -88,17 +88,11 @@ body, html {
 }
 
 #display-image {
-    content-fit: fill;
-    width: 100%;
+    object-fit: contain;
+    object-position: left top;
+    height: 100vh;
     display: none;
-   /* transition: filter 0.01s ease, transform 0.01s;  Smooth transition for blur and scale */
 }
-
-/*.vertical-blurred {
-    filter: blur(20px);
-  transform: scaleY(10); Standard blur 
-    Slightly scale in the Y direction to simulate vertical-only blur 
-} */
 
 .caption-container {
     flex: 1;
