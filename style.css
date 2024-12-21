@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  font-family: "NimbusSanL";
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.about-container-desktop {
+  display: block;
+  z-index: 5000;
+}
+
+.header-container {
+  display: none;
+  width: 100%;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+  align-items: flex-start; /* Align children at the top and allow independent heights */
+}
+
+.index-container {
+  display: flex;
+  flex: 2;
+  padding: 0;
+  margin: 0;
+}
+
+.image-container {
+  flex: 4;
+  height: 100vh;
+  padding-bottom: 0px;
+  border-left: 0px solid black;
+  padding-top: 0px;
+  margin-left: 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;/* Align image to the top */
+}
+
+#display-image {
+  object-fit: contain;
+  object-position: top;
+  height: 100vh;
+  display: none;
+}
+
+.caption-container {
+  flex: 1;
+  margin-left: 0px;
+  overflow-y: scroll;
+  height: 100vh;
+  padding-bottom: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+.caption-container::-webkit-scrollbar {
+  display: none;
+}
+
+.caption {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.3; /* Default opacity for inactive captions */
+  transition: opacity 0.1s ease;
+  border-left: 0px solid black;
+  padding-left: 0px;
+  margin-bottom: -3px;
+  scroll-snap-align: start;
+  color: black;
+}
+
+.caption:hover {
+  opacity: 1 !important;
+}
+
+.text-container {
+  flex: 1;
+  margin-right: 0px;
+  display: inline-block;
+  align-items: flex-start;
+}
+
+.text-container a {
+  pointer-events: auto;
+  color: black;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.text-container a:hover {
+  color: black;
+  opacity: 0.3;
+}
+
+.text-container p {
+  border-left: 0px solid black;
+  padding-right: 5px;
+  opacity: 0.3;
+}
+
+
+@font-face {
+  font-family: "NimbusSanL";
+  src: url("https://raw.githubusercontent.com/larssonmauritz/Fredrik-Paulsen-Web/main/NimbusSanL-Bol-webfont.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NimbusSanL";
+  src: url("https://raw.githubusercontent.com/larssonmauritz/Fredrik-Paulsen-Web/main/NimbusSanL-BolIta-webfont.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+.header-mobile,
+.about-container {
+  display: none;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+  /* Display mobile header */
+  .captionContainer,
+  .textContainer,
+  .about-container-desktop {
+    display: none;
+  }
+  .main-container {
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    flex-direction: column;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .container {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-container {
+    padding: 0px;
+  }
+
+  .index-container {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header-container {
+    padding: 0px;
+  }
+
+  .header-mobile {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 6000;
+    margin-bottom: 0px;
+    height: 25px;
+  }
+
+  .index-button {
+    display: flex;
+    width: 12vw;
+    color: white;
+    padding-right: 0px;
+    z-index: 1000;
+    text-decoration: none;
+  }
+
+  .index-button.active {
+    text-decoration: underline; /* Add underline when active */
+  }
+
+  .title-button {
+    display: flex;
+    width: 43vw;
+    padding-right: 5px;
+    color: white;
+    z-index: 3000;
+    text-decoration: none;
+  }
+
+  .about-button {
+    display: flex;
+    padding-right: 5px;
+    color: white;
+    z-index: 10000;
+    text-decoration: none;
+  }
+
+  .about-button u {
+    text-decoration: underline;
+  }
+
+  .about-button:hover {
+    text-decoration: underline;
+  }
+
+  .image-container {
+    height: 100%;
+    position: absolute;
+    border-left: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+    align-items: flex-start; /* Align image to the top */
+  }
+
+  #display-image {
+    height: 100%;
+    object-position: 50% 50%;
+    object-fit: cover;
+    display: none;
+    
+  }
+
+  .caption-container {
+    position: relative;
+    display: inline-block;
+    flex: 5;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 2000;
+    padding-right: 10px;
+    opacity: 1;
+    padding-bottom: 100vh;
+    margin-top: 38px;
+  }
+
+  .caption {
+    padding-left: 0px;
+    margin-left: 0px;
+    scroll-snap-align: start;
+    opacity: 0.3;
+    color: white;
+  }
+
+  .about-container {
+    display: none;
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 10px;
+    z-index: 5000;
+    padding-right: 5px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+
+  .about-container p {
+    display: inline-block;
+    color: white;
+  }
+
+  .about-container a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .about-container a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .text-container {
+    display: flex;
+    flex: 4;
+    position: relative;
+    margin-top: 38px;
+    padding-left: 10px;
+    z-index: 2000;
+    padding-right: 5px;
+    /*font-style: italic;*/
+  }
+
+  .text-container a {
+    pointer-events: auto;
+    color: black;
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .text-container p {
+    margin-left: 0px;
+    opacity: 1;
+    color: white;
+  }
+
+
+  /* Enable scroll snap */
+  .caption-container {
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
+  }
+}
